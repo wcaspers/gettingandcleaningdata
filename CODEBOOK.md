@@ -37,8 +37,8 @@ Input data are splitted into 2 independent data sets. Locations are the **test a
 - Connection of subject to DF: subject_test, subject_train (by position row# -> row#)
 
 # Output Data: #
-- ***tidydata.csv**
-- ***tidydatastat.txt**
+- **tidydata.csv**
+- **tidydatastat.txt**
 
 
 **tidydata.csv, tidydatastat.txt** : comma separated files, with identying variables and data variables, contains combined rows of test and training data 
