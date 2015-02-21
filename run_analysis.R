@@ -9,7 +9,8 @@ library(dplyr)
 library(data.table)
 
 
-## Downloading File
+## check if subdirectory data exists, if not create it, switch working directory to subdirectory data,
+## then download file at the given internet location and unzip it 
 
 if (!file.exists("data")) {
   dir.create("data")
@@ -21,7 +22,7 @@ download.file(Url, "zipdata.zip")
 ## Unzipping file
 unzip("zipdata.zip")
 
-## Reading  files into memory
+## Reading the unzipped files nto memory
 
 subject_train    <-read.table("./UCI HAR Dataset/train/subject_train.txt",header=FALSE)
 subject_test     <-read.table("./UCI HAR Dataset/test/subject_test.txt",header=FALSE)
@@ -38,7 +39,7 @@ subject <-rbind(subject_train,subject_test)
 y       <-rbind(y_train,y_test)
 x       <-rbind(x_train,x_test)
 
-## Combine y and activity labels
+## Combine y and activity labels, label the colums properly
 subjectactivity <- cbind(subject,y) 
 names(subjectactivity)[1] <- c("SubjectId")
 names(subjectactivity)[2] <- c("ActivityId")
@@ -73,7 +74,6 @@ tidydatadt <- data.table(tidydata)
 write.table(tidydatadt,file="tidydata.csv",sep=",",row.names = FALSE)
 
 ## 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-tidydatadt <- data.table(tidydata)
 
 tidystat<- tidydatadt[,lapply(.SD,mean),by="SubjectId,ActivityName"]
 tidystat <- arrange(tidystat, SubjectId,ActivityName)
