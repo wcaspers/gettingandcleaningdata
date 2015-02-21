@@ -27,11 +27,11 @@ Input data are splitted into 2 independent data sets. Locations are the **test a
 
 *number of subjects:* **30** (unique value from subject_test and subject _train)
 
-*number of possible activities per subject*: **6** (activity _labels and y_test, x_test)
+*number of possible activities per subject*: **6** (activity _labels and y_test, y_train)
 
 **Logical Data Model from Analysis**
 
-- Data files(DF): x_test, x_train
+- Datafiles(DF): x _ test and x _train
 - Connection to meaning of colums / variables of DF: features (by position row# -> colum#)
 - Connection of activity to DF: y_test, y_train (by position row# -> row#)
 - Connection of subject to DF: subject_test, subject_train (by position row# -> row#)
